@@ -1,54 +1,70 @@
-# Issue Reporting App
+# TVRI Issue Reporting App
 
-A comprehensive mobile application for tracking and managing computer-related hardware and software issues across different organizational roles.
+A mobile application built with React Native and Expo for managing and reporting technical issues at TVRI. This app facilitates communication between employees, operators, and technicians for efficient issue resolution.
 
 ## Features
 
-### Employee Features
-- Report software and hardware issues
-- Upload issue photos
-- Track issue status
-- View issue history
+### User Roles
+- **Employees**: Can report technical issues and track their status
+- **Operators**: Manage reports and assign technicians
+- **Technicians**: Handle assigned tasks and update their status
 
-### Operator Features
-- Manage issue reports
-- Assign technicians
-- Generate analytics and reports
-- Filter and export issue data
+### Key Functionalities
+- Issue reporting with image attachments
+- Real-time status tracking
+- Task assignment system
+- Evaluation dashboard
+- Report history
+- User authentication and authorization
 
-### Technician Features
-- Receive task assignments
-- View and update issue details
-- Add solution information
-- Upload after-repair photos
-- Update issue status
+## Technology Stack
 
-## Tech Stack
+- **Frontend Framework**: React Native with Expo
+- **State Management**: Redux Toolkit
+- **UI Components**: React Native Paper
+- **Navigation**: React Navigation
+- **Database**: Firebase/Firestore
+- **Authentication**: Firebase Auth
+- **Charts**: React Native Chart Kit
+- **Image Handling**: Expo Image Picker
 
-- React Native with Expo
-- Redux Toolkit for state management
-- React Native Paper for UI components
-- React Navigation for routing
-- Expo Image Picker for image handling
-- React Native Chart Kit for analytics
+## Project Structure
 
-## Prerequisites
+```
+src/
+├── assets/          # Images and static assets
+├── components/      # Reusable UI components
+├── config/          # Configuration files (Firebase, etc.)
+├── data/           # Mock data and constants
+├── navigation/     # Navigation configuration
+├── screens/        # Application screens
+│   ├── auth/       # Authentication screens
+│   ├── employee/   # Employee-specific screens
+│   ├── operator/   # Operator-specific screens
+│   └── technician/ # Technician-specific screens
+├── store/          # Redux store configuration
+└── utils/          # Utility functions
+```
 
-- Node.js (v14 or later)
+## Getting Started
+
+### Prerequisites
+- Node.js
 - npm or yarn
 - Expo CLI
-- iOS Simulator (for Mac) or Android Studio (for Android development)
+- Android Studio (for Android development)
+- Xcode (for iOS development, macOS only)
 
-## Installation
+### Installation
 
 1. Clone the repository:
 ```bash
-git clone [repository-url]
-cd issue-reporting-app
+git clone https://github.com/Geraldo-Morris/tvriapp.git
 ```
 
 2. Install dependencies:
 ```bash
+cd tvriapp
 npm install
 ```
 
@@ -57,50 +73,16 @@ npm install
 npm start
 ```
 
-4. Use the Expo Go app on your mobile device to scan the QR code, or press 'a' to open in an Android emulator or 'i' for iOS simulator.
-
-## Demo Accounts
-
-Use these accounts to test different roles:
-
-- Employee:
-  - Username: employee1
-  - Password: pass123
-
-- Operator:
-  - Username: operator1
-  - Password: pass123
-
-- Technician:
-  - Username: technician1
-  - Password: pass123
-
-## Project Structure
-
+4. Run on Android:
+```bash
+npm run android
 ```
-src/
-├── screens/
-│   ├── auth/
-│   │   └── LoginScreen.js
-│   ├── employee/
-│   │   ├── EmployeeDashboard.js
-│   │   └── ReportIssue.js
-│   ├── operator/
-│   │   ├── OperatorDashboard.js
-│   │   ├── ManageReports.js
-│   │   ├── AssignTechnician.js
-│   │   └── EvaluationDashboard.js
-│   └── technician/
-│       ├── TechnicianDashboard.js
-│       └── TaskDetails.js
-├── store/
-│   ├── index.js
-│   └── slices/
-│       ├── authSlice.js
-│       └── issuesSlice.js
-└── navigation/
-    └── AppNavigator.js
-```
+
+## Environment Setup
+
+1. Create a Firebase project
+2. Add your Firebase configuration in `src/config/firebase.js`
+3. Enable Authentication and Firestore in your Firebase console
 
 ## Contributing
 
@@ -112,4 +94,10 @@ src/
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is proprietary and confidential. Unauthorized copying or distribution of this project's files, via any medium, is strictly prohibited.
+
+## Contact
+
+Geraldo Morris - geraldorau8@gmail.com
+
+Project Link: [https://github.com/Geraldo-Morris/tvriapp](https://github.com/Geraldo-Morris/tvriapp)
