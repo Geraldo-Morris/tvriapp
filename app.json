@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "tvriapp",
+    "slug": "tvriapp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/splash-icon.png",
+    "userInterfaceStyle": "light",
+    "owner": "cuyy",
+    "splash": {
+      "image": "./src/assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/splash-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.company.tvriapp",
+      "googleServicesFile": "./google-services.json",
+      "buildToolsVersion": "33.0.0",
+      "compileSdkVersion": 33,
+      "targetSdkVersion": 33,
+      "minSdkVersion": 21
+    },
+    "web": {
+      "favicon": "./src/assets/splash-icon.png"
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "kotlinVersion": "1.8.0",
+            "enableProguardInReleaseBuilds": true,
+            "enableShrinkResourcesInReleaseBuilds": true
+          }
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "8f427331-e18c-4cc5-83f6-b2623f224039"
+      }
+    }
+  }
+}

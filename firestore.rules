@@ -1,0 +1,42 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user is an operator
+    function isOperator() {
+      let userDoc = get(/databases/$(database)/documents/users/$(request.auth.uid));
+      return userDoc != null && userDoc.data.role == 'operator';
+    }
+    
+    // Helper function to check if user is a technician
+    function isTechnician() {
+      let userDoc = get(/databases/$(database)/documents/users/$(request.auth.uid));
+      return userDoc != null && userDoc.data.role == 'technician';
+    }
+    
+    // Users collection rules
+    match /users/{userId} {
+      // Allow operators to create and manage other users
+      allow create: if isAuthenticated() && (isOperator() || request.auth.uid == userId);
+      // Allow users to read their own data and operators to read all user data
+      allow read: if isAuthenticated() && (isOperator() || request.auth.uid == userId);
+      // Allow users to update their own data and operators to update any user data
+      allow update: if isAuthenticated() && (isOperator() || request.auth.uid == userId);
+      // Only operators can delete user accounts
+      allow delete: if isAuthenticated() && isOperator();
+    }
+    
+    // Reports collection rules
+    match /reports/{reportId} {
+      allow create: if isAuthenticated();
+      allow read: if isAuthenticated();
+      allow update: if isAuthenticated() && (isOperator() || isTechnician());
+      allow delete: if isAuthenticated() && isOperator();
+    }
+  }
+}

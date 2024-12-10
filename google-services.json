@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "36255564527",
+    "project_id": "kerjapraktik-73563",
+    "storage_bucket": "kerjapraktik-73563.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36255564527:android:25483ade547bdbd271911a",
+        "android_client_info": {
+          "package_name": "com.company.tvriapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36255564527-om00qam5u20lfv51jqf8soi4h36f6pj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa8EyjkOO4_QTySQW8j7xZpj8oFm93UdI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36255564527-om00qam5u20lfv51jqf8soi4h36f6pj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
