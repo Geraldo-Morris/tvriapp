@@ -17,6 +17,8 @@ const ManageReports = ({ navigation }) => {
   const [showEndDate, setShowEndDate] = useState(false);
   const [statusFilter, setStatusFilter] = useState('all');
   const [showStatusMenu, setShowStatusMenu] = useState(false);
+  const [categoryFilter, setCategoryFilter] = useState('all');
+  const [showCategoryMenu, setShowCategoryMenu] = useState(false);
 
   // Protect operator screens
   useEffect(() => {
@@ -70,6 +72,9 @@ const ManageReports = ({ navigation }) => {
           (report.status === 'in_progress' || report.status === 'assigned') : 
           report.status === statusFilter);
 
+      // Category filter
+      const matchesCategory = categoryFilter === 'all' || report.category === categoryFilter;
+
       // Date filter
       let matchesDate = true;
       if (startDate || endDate) {
@@ -83,7 +88,7 @@ const ManageReports = ({ navigation }) => {
         }
       }
 
-      return matchesSearch && matchesStatus && matchesDate;
+      return matchesSearch && matchesStatus && matchesDate && matchesCategory;
     });
   };
 
@@ -208,6 +213,45 @@ const ManageReports = ({ navigation }) => {
                 title="Unresolved" 
                 style={styles.menuItem}
                 titleStyle={[styles.menuItemText, statusFilter === 'unresolved' && styles.selectedMenuItem]}
+              />
+            </Menu>
+          </View>
+
+          {/* Category Filter */}
+          <View style={styles.statusFilterContainer}>
+            <Menu
+              visible={showCategoryMenu}
+              onDismiss={() => setShowCategoryMenu(false)}
+              anchor={
+                <Button 
+                  mode="outlined" 
+                  onPress={() => setShowCategoryMenu(true)}
+                  style={styles.filterButton}
+                  contentStyle={styles.statusButtonContent}
+                  labelStyle={styles.statusButtonLabel}
+                >
+                  Category: {categoryFilter.charAt(0).toUpperCase() + categoryFilter.slice(1)}
+                </Button>
+              }
+              contentStyle={styles.menuContent}
+            >
+              <Menu.Item 
+                onPress={() => { setCategoryFilter('all'); setShowCategoryMenu(false); }} 
+                title="All" 
+                style={styles.menuItem}
+                titleStyle={[styles.menuItemText, categoryFilter === 'all' && styles.selectedMenuItem]}
+              />
+              <Menu.Item 
+                onPress={() => { setCategoryFilter('hardware'); setShowCategoryMenu(false); }} 
+                title="Hardware" 
+                style={styles.menuItem}
+                titleStyle={[styles.menuItemText, categoryFilter === 'hardware' && styles.selectedMenuItem]}
+              />
+              <Menu.Item 
+                onPress={() => { setCategoryFilter('software'); setShowCategoryMenu(false); }} 
+                title="Software" 
+                style={styles.menuItem}
+                titleStyle={[styles.menuItemText, categoryFilter === 'software' && styles.selectedMenuItem]}
               />
             </Menu>
           </View>
