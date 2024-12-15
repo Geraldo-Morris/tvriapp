@@ -64,7 +64,11 @@ const ManageReports = ({ navigation }) => {
         report.status?.toLowerCase().includes(searchLower);
 
       // Status filter
-      const matchesStatus = statusFilter === 'all' || report.status === statusFilter;
+      const matchesStatus = 
+        statusFilter === 'all' || 
+        (statusFilter === 'in_progress' ? 
+          (report.status === 'in_progress' || report.status === 'assigned') : 
+          report.status === statusFilter);
 
       // Date filter
       let matchesDate = true;
